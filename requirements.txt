@@ -1,0 +1,6 @@
+numpy
+matplotlib
+pylatexenc
+tqdm
+qiskit
+qiskit-ionq==0.5.2
