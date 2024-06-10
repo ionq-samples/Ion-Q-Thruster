@@ -44,12 +44,12 @@ def print_metrics(metrics):
 def run_test_case(qc, backend):
     
     original_circuit = transpile(qc, backend=backend, optimization_level=3)
-    #print("IBM transpiled circuit:")
+    print("IBM transpiled circuit:")
     #print(original_circuit.draw())
 
     custom_transpiler = IonQ_Transpiler(backend)
     optimized_circuit = custom_transpiler.transpile(qc)
-    #print("\nCustom transpiled circuit:")
+    print("\nCustom transpiled circuit:")
     #print(optimized_circuit.draw())
 
     original_metrics, optimized_metrics = compare_circuits(original_circuit, optimized_circuit)
@@ -58,21 +58,24 @@ def run_test_case(qc, backend):
     
     print("\nCustom transpiled circuit metrics:")
     print_metrics(optimized_metrics)
+    
+    return original_circuit, optimized_circuit
 
 
 # Initialize the IonQ provider and backend
-api_key = os.getenv("IONQ_API_KEY") or input("Enter your IonQ API key: ")
-provider = IonQProvider(token=api_key)
-backend = provider.get_backend("simulator", gateset="native")
+#api_key = os.getenv("IONQ_API_KEY") or input("Enter your IonQ API key: ")
+#provider = IonQProvider(token=api_key)
+#backend = provider.get_backend("simulator", gateset="native")
 
 # Generate random circuits
-num_qubits = 5
-depth = 10
-num_circuits = 5
+#num_qubits = 5
+#depth = 10
+#num_circuits = 5
 
-random_circuits = [random_circuit(num_qubits, depth, measure=True) for _ in range(num_circuits)]
+#random_circuits = [random_circuit(num_qubits, depth, measure=True) for _ in range(num_circuits)]
 
 # Run test cases
-for i, qc in enumerate(random_circuits):
-    print(f"\nTest Case {i+1}:")
-    run_test_case(qc, backend)
+#for i, qc in enumerate(random_circuits):
+#    print(f"\nTest Case {i+1}:")
+#    run_test_case(qc, backend)
+    

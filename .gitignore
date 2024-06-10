@@ -1,1 +1,4 @@
 venv/
+.yml 
+__pycache__/
+.dist/
